@@ -39,9 +39,13 @@
 
 Maintaining standard practise is not repeating yourself in a code, while working on this Algorithm i had guide from the internet `Andersson Johan` implementation worked to an extent but i had to better the implementation to suite my need.
 
-Project Struture - src - TextWrap - TextWrap Test
+Project Struture
 
-- Please note that the file to edit is in the application folder, the response will be written onto your desktop
+- src
+  - TextWrap
+  - TextWrap Test
+
+* Please note that the file to edit is in the application folder, the response will be written onto your desktop
 
 Of course the implementation is online, but tweaking and understanding how to make it work is also a challenge, appreciation to `Andersson Johan` for taking time to write the algorithm over 9yrs ago. Hopefully this secures the goal.
 
