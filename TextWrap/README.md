@@ -32,7 +32,7 @@
   <h3 align="center">Text-Wrapping Assignment</h3>
 
   <p align="center">
-    A take home test on text wrapping 
+    A take home test on text wrapping
     <br />
     <a href="https://github.com/migellars/TextWrapping/issues">Report Bug</a>
     ·
