@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using static System.IO.File;
 
-namespace TextWrapping
+namespace TextWrap
 {
     public class WrapClass
     {
@@ -29,8 +30,8 @@ namespace TextWrapping
             //Get value from file
             var docToRead = Path.Combine(Path.Combine(AppContext.BaseDirectory, "doc\\dataRead.txt"));
             var docToWritePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory), "Telesoftas");
-            var files = File.ReadAllText(docToRead);
-            using var reader = new StreamReader(File.OpenRead(docToRead));
+            var files = ReadAllText(docToRead);
+            using var reader = new StreamReader(OpenRead(docToRead));
             //get limit for data
             int fixedLength;
 
@@ -44,17 +45,16 @@ namespace TextWrapping
             }
 
             var dataResult = DataWrap(files, fixedLength);
-            Console.WriteLine("A Doc folder will created on your desktop for the result");
+            Console.WriteLine("A Doc folder will be created on your desktop for the result");
             const string file = "dataToWrite.txt";
             if (!Directory.Exists(docToWritePath))
-            {
                 try
                 {
                     Directory.CreateDirectory(docToWritePath);
                     var filePath = Path.Combine(docToWritePath, file);
-                    if (!File.Exists(filePath))
+                    if (!Exists(filePath))
                     {
-                        using var writer = new StreamWriter(File.Create(filePath));
+                        using var writer = new StreamWriter(Create(filePath));
                         foreach (var data in dataResult) writer.WriteLine(data);
                     }
 
@@ -64,21 +64,19 @@ namespace TextWrapping
                     Console.WriteLine("IO:" + e);
                     throw;
                 }
-            }
             else
-            {
                 try
                 {
                     var filePath = Path.Combine(docToWritePath, file);
-                    if (!File.Exists(filePath))
+                    if (!Exists(filePath))
                     {
-                        using var writer = new StreamWriter(File.Create(filePath));
+                        using var writer = new StreamWriter(Create(filePath));
                         foreach (var data in dataResult) writer.WriteLine(data);
 
                     }
                     else
                     {
-                        using var writer = new StreamWriter(File.Create(filePath));
+                        using var writer = new StreamWriter(Create(filePath));
                         foreach (var data in dataResult) writer.WriteLine(data);
 
                     }
@@ -89,7 +87,6 @@ namespace TextWrapping
                     Console.WriteLine("IO:" + e);
                     throw;
                 }
-            }
 
             return dataResult;
         }

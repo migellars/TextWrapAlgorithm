@@ -1,5 +1,4 @@
 ﻿using System;
-using TextWrapping;
 using static System.String;
 
 namespace TextWrap
